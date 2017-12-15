@@ -70,3 +70,36 @@ public class SleuthServerApp {
 ```
 
 启动项目， 浏览器中输入 localhost:9411 查看链路信息
+
+#链路信息保存到信息elasticsearch
+
+引入依赖
+```
+        <dependency>
+            <groupId>io.zipkin.java</groupId>
+            <artifactId>zipkin</artifactId>
+            <version>1.28.0</version>
+        </dependency>
+        <dependency>
+            <groupId>io.zipkin.java</groupId>
+            <artifactId>zipkin-autoconfigure-storage-elasticsearch-http</artifactId>
+            <version>1.28.0</version>
+        </dependency>
+```
+
+配置elasticsearch
+```
+zipkin:
+  storage:
+    type: elasticsearch
+    StorageComponent: elasticsearch
+    elasticsearch:
+      cluster: yanggy
+      max-requests: 30
+      index: zipkin
+      index-shards: 5
+      index-replicas: 1
+      hosts: localhost:9200
+```
+
+重新启动项目，查看elasticsearch中 zipkin-日期的索引。
