@@ -12,3 +12,16 @@ spring:
     port: 5672
     username: guest
     password: derrick
+
+zipkin:
+  storage:
+    type: elasticsearch
+    StorageComponent: elasticsearch
+    elasticsearch:
+      cluster: yanggy
+      max-requests: 30
+      index: zipkin-server
+      index-shards: 5
+      index-replicas: 1
+      hosts: localhost:9200
+
