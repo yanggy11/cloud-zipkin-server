@@ -8,10 +8,10 @@ spring:
   application:
     name: zipkin-server
   rabbitmq:
-    host: localhost
+    host: 192.168.33.82
     port: 5672
-    username: guest
-    password: derrick
+    username: admin
+    password: admin
 
 zipkin:
   storage:
@@ -20,7 +20,7 @@ zipkin:
     elasticsearch:
       cluster: yanggy
       max-requests: 30
-      index: zipkin-server
+      index: zipkin-trace
       index-shards: 5
       index-replicas: 1
       hosts: localhost:9200
